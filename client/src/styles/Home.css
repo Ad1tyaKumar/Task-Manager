@@ -1,0 +1,102 @@
+*{
+    background-color: #f2f4f8;
+}
+.completed-word{
+    background-color: white;
+}
+.edit{
+    color: rgb(15, 81, 50);
+}
+.icons-div{
+    font-size: 15px;
+    line-height: 2.1; 
+    margin-top: 1%;
+    padding-left: 10%; 
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 53%;
+    
+    background-color: white;
+}
+.icons{
+    margin-left: 40%;
+    background-color: white;
+  
+} 
+.task-input{
+    text-align: center;
+    padding-top: 1%;
+    background-color: white;
+    width:40%;
+    margin-left: 30%;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 6%;
+}
+.tasks{
+    font-family: 'Inconsolata', 'monospace';
+    font-size: 25px;
+    margin:18px 10px;
+    
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    line-height: 2.6;
+    width: 37%;
+    margin-left: 30%;
+    padding-left: 3%;
+}
+
+.trash{
+    color: rgb(132, 32, 41);
+}
+p {
+
+    font-size: 30px;
+    font-family: 'Inconsolata', monospace;
+    background-color: white;
+}
+
+.input {
+    background-color: rgb(242, 244, 248);
+    font-size: 20px;
+    border-width: 1px;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    width: 60%;
+    border: 1px solid rgb(222, 217, 217);
+    box-sizing: border-box;
+    line-height: 1.5;
+    
+}
+::placeholder{
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(182, 178, 178);
+    font-weight: 400;
+}
+.submit{
+    cursor: pointer;
+    background-color: rgb(100, 92, 255);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-stretch: 100%;
+    font-size: 18px;
+    line-height: 1.69;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-width: 1px;
+    margin-bottom: 10%;
+    width: 20%;
+    height: 35.9px;
+}
+.submit:hover{
+    background-color: #4640b3;
+    transition: all 0.9s ease;
+}

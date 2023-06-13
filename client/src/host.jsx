@@ -1,2 +1,2 @@
-const backEndUrl="http://localhost:3000/api/v1/tasks";
+const backEndUrl="https://task-manager-9txo.onrender.com/api/v1/tasks";
 export default backEndUrl;

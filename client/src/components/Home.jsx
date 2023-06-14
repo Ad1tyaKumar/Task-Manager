@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Home = () => {
   const { setId } = useContext(Context);
   const [contents, setContents] = useState([])
-  const [names,setNames]=useState('');
+  const [names, setNames] = useState('');
   axios.get(`${backEndUrl}`).then((res) => {
     // console.log(res.data.tasks);
     setContents([res.data.tasks])
@@ -32,21 +32,21 @@ const Home = () => {
   const handleNameChange = (event) => {
     setNames(event.target.value);
   };
-  const handleSubmit= async()=>{
-    try{
-      await axios.post(`${backEndUrl}`,{name:names})
+  const handleSubmit = async () => {
+    try {
+      await axios.post(`${backEndUrl}`, { name: names })
       toast.success('Added Successfully!');
-    }catch(e){
+    } catch (e) {
       console.log(e);
     }
   }
- 
+
   return (
 
     <>
       <div className='task-input'>
         <p>Task Manager</p>
-        <input className="input" type="text" placeholder='e.g. wash dishes'  onChange={handleNameChange} />
+        <input className="input" type="text" placeholder='e.g. wash dishes' onChange={handleNameChange} />
         <button className='submit' onClick={handleSubmit} >Submit</button>
       </div>
 
@@ -57,10 +57,11 @@ const Home = () => {
             return (
               <>
                 <div className='tasks'>
-                  {
-                    !i.completed ? i.name : <s className='completed-word'>{i.name}</s>
-                  }
-
+                  <div className='task-name'>
+                    {
+                      !i.completed ? i.name : <s className='completed-word'>{i.name}</s>
+                    }
+                  </div>
                   <div className='icons-div'>
                     <Link className='icons edit' to={'/edit'} onClick={() => { handleEdit(i._id) }}><i className='fas fa-edit'></i></Link>
                     <Link className='icons trash' onClick={() => { handleDelete(i._id) }}><i className='fas fa-trash'></i></Link>
@@ -72,7 +73,7 @@ const Home = () => {
 
           }) : <div></div>
       }
-      <ToastContainer/>
+      <ToastContainer />
     </>
 
   )

@@ -60,13 +60,13 @@ const Edit = () => {
       <div className='main-content'>
         <p>Edit Task</p>
         <div className='content'>
-          <p>Task ID</p> <p className='values'>{content._id}</p>
+          <p className='task-id'>Task ID</p> <p className='values id'>{content._id}</p>
         </div>
         <div className='content'>
-          <p>Name</p> <input className='input1 values' type='text' value={names} onChange={handleNameChange} />
+          <p className='name'>Name</p> <input className='input1 values' type='text' value={names} onChange={handleNameChange} />
         </div>
         <div className='content'>
-          <p>Completed</p> <input className='values' type='checkbox' defaultChecked={content.completed} onClick={handleCheck} />
+          <p className='completed'>Completed</p> <input className='values' type='checkbox' defaultChecked={content.completed} onClick={handleCheck} />
         </div>
         <button className='edit-button' onClick={handleEdit}>
           Edit

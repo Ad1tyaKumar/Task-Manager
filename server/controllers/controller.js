@@ -37,7 +37,6 @@ export const updateTask = async (req, res) => {
         const task = await Task.findOneAndUpdate({ _id: id }, req.body, {
             new: true, runValidators: true, useFindAndModify: false
         });
-        console.log(task);
         if (!task) {
             return res.status(404).json({ msg: "NOT FOUND!" });
         }

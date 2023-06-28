@@ -3,10 +3,12 @@ import router from './routes/task.js'
 import connDB from './db/conn.js';
 import 'dotenv/config.js'
 import cors from 'cors'
+import cookieParser from "cookie-parser"
 const app = express();
 
 
 //middlewares
+app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
     origin:process.env.FRONT_END_URL,
@@ -14,7 +16,7 @@ app.use(cors({
     credentials:true,
 }))
 //routes
-app.use('/api/v1/tasks', router)
+app.use('/', router)
 
 const port = process.env.PORT || 3000;
 

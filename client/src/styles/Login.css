@@ -1,0 +1,56 @@
+
+
+.forms{
+    margin-top: 5%;
+}
+.icon{
+    font-size: 45px;
+    position: relative;
+    top:9px;
+    margin-right: 1%;
+}
+.icon-lock{
+    font-size: 45px;
+    position: relative;
+    top:9px;
+    margin-right: 1%;
+}
+/* .input{
+    width: 30%;
+} */
+.login{
+    text-align: center;
+    padding-top: 1%;
+    background-color: white;
+    width:40%;
+    margin-left: 30%;
+    margin-top: 3.5%;
+    height: 309px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+.login p{
+    background-color: white;
+}
+.login-button{
+    cursor: pointer;
+    background-color: rgb(100, 92, 255);
+    color: rgb(255, 255, 255);
+    font-family: 'Montserrat', sans-serif;
+    font-stretch: 100%;
+    font-size: 20px;
+    border-radius: 3px;
+    margin-top: 5%;
+    line-height: 1.5;
+}
+.login-button:hover{
+    background-color: #4640b3;
+    transition: all 0.9s ease;
+}
+.new{
+   background-color: #f2f4f8;
+   text-align: center;
+   margin-top: 3%;
+}
+.back-home{
+    margin-top: 1%;
+}

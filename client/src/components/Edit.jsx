@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from 'react';
-import '../styles/Edit.css';
 import { Link, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import backEndUrl from '../host';
@@ -19,7 +18,7 @@ const Edit = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${backEndUrl}/${id}`);
+        const response = await axios.get(`${backEndUrl}/${id}`,{withCredentials:true},);
         setContent(response.data.task);
       } catch (error) {
         // Handle error
@@ -46,7 +45,7 @@ const Edit = () => {
 
   const handleEdit = async () => {
     try {
-      await axios.patch(`${backEndUrl}/${id}`, { name: names, completed: check });
+      await axios.patch(`${backEndUrl}/${id}`, { name: names, completed: check },{withCredentials:true},);
       toast.success('Edited Successfully!')
     } catch (e) {
       console.log(e);
@@ -72,6 +71,7 @@ const Edit = () => {
           Edit
         </button>
       </div>
+      
       <Link to={'/'}>
         <button className='back-home'>Back To Tasks</button>
       </Link>

@@ -1,4 +1,4 @@
-*{
+body{
     background-color: #f2f4f8;
 }
 .completed-word{
@@ -32,6 +32,13 @@
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     margin-bottom: 6%;
 }
+.task-input p {
+
+    font-size: 30px;
+    font-family: 'Inconsolata', monospace;
+    background-color: white;
+    text-align: center;
+}
 .tasks{
     font-family: 'Inconsolata', 'monospace';
     font-size: 25px;
@@ -56,8 +63,10 @@ p {
 
     font-size: 30px;
     font-family: 'Inconsolata', monospace;
-    background-color: white;
+    background-color:#f2f4f8;
+    text-align: center;
 }
+
 
 .input {
     background-color: rgb(242, 244, 248);

@@ -2,8 +2,6 @@ import React, { useState, useContext } from 'react'
 import axios from 'axios'
 import { Context } from '..';
 import backEndUrl from '../host';
-//styles
-import '../styles/Home.css'
 import { Link } from 'react-router-dom';
 
 //toast
@@ -12,18 +10,26 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
   const { setId } = useContext(Context);
-  const [contents, setContents] = useState([])
+  const [contents, setContents] = useState([[]])
   const [names, setNames] = useState('');
-  axios.get(`${backEndUrl}`).then((res) => {
-    // console.log(res.data.tasks);
-    setContents([res.data.tasks])
-  })
+  const [loading,setLoading]=useState(true);
+  const fetchData=async()=>{
+    try{
+      await axios.get(`${backEndUrl}/`,{withCredentials:true}).then((res) => {
+        setContents([res.data.tasks])
+        setLoading(false)
+      })
+    }catch(e){
+      console.log(e);
+    }
+  }
+  fetchData();
   const handleEdit = (_id) => {
     setId(_id);
   }
   const handleDelete = async (_id) => {
     try {
-      await axios.delete(`${backEndUrl}/${_id}`)
+      await axios.delete(`${backEndUrl}/${_id}`,{withCredentials:true})
       toast.success("Deleted Successfully!")
     } catch (e) {
       console.log(e);
@@ -34,7 +40,7 @@ const Home = () => {
   };
   const handleSubmit = async () => {
     try {
-      await axios.post(`${backEndUrl}`, { name: names })
+      await axios.post(`${backEndUrl}` ,{ name: names },{withCredentials:true})
       toast.success('Added Successfully!');
     } catch (e) {
       console.log(e);
@@ -44,18 +50,21 @@ const Home = () => {
   return (
 
     <>
+    
       <div className='task-input'>
         <p>Task Manager</p>
         <input className="input" type="text" placeholder='e.g. wash dishes' onChange={handleNameChange} />
-        <button className='submit' onClick={handleSubmit} >Submit</button>
+        <button className='submit' onClick={handleSubmit} disabled={loading} >Submit</button>
       </div>
 
-
+      {loading && <p>Please Wait Loading...</p>}
+      
       {
-        contents.length ?
+          contents[0].length?
           contents[0].map((i) => {
             return (
               <>
+                
                 <div className='tasks'>
                   <div className='task-name'>
                     {
@@ -71,7 +80,7 @@ const Home = () => {
             )
 
 
-          }) : <div></div>
+          }) :<p>No tasks to display!</p>
       }
       <ToastContainer />
     </>
